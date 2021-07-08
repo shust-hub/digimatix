@@ -1,0 +1,375 @@
+@import "normalize";
+@import "bootstrap";
+@import "variables";
+@import "mixins";
+
+//---------------------------------------------------
+//Общие
+//---------------------------------------------------
+html{
+    font-size: 100%;
+}
+.container {
+    max-width: 1200px;
+}
+.headerWrapper{
+    background: center / cover no-repeat $black-color url('../img/header-wall.png');
+}
+h2{
+    font-weight: bold;
+    margin-bottom: 70px;
+}
+.btn{
+    padding: 12px 16px;
+    height: 48px;
+    background: $white-color;
+    border-radius: 6px;
+    font-weight: 900;
+    // font-size: 12px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $base-color;
+}
+
+//---------------------------------------------------
+//Хедер
+//---------------------------------------------------
+#header{
+    transition: all 0.5s;
+    z-index: 997;
+    position: absolute;
+    width: 100%;
+    .logo-h{
+        max-width: 190px;
+    }
+    .btn-ticket{
+        // font-size: 10px;
+        font-size: 0.625rem;
+    }
+}
+
+#header.header-scrolled{
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+}
+
+//---------------------------------------------------
+//Hero
+//---------------------------------------------------
+#hero{
+    height: 100vh;
+    h1, p{
+        color: $white-color;
+        text-align: center;
+    }
+    .btn-play{
+        // font-size: 16px;
+        align-items: center;
+        transition: 0.5s;
+        margin: 0 0 0 15px;
+        color: $white-color;
+        line-height: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+        width: 48px;
+        height: 48px;
+        background: $base-color;
+        border-radius: 68px;
+        i:before{
+            content: url('../img/icon/play.svg');
+            display: inline-block;
+            line-height: 1;
+            margin-left: -1px;
+            vertical-align: -.125em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
+
+    .moon{
+        width: 100%;
+        vertical-align: middle; 
+        position: relative;
+        min-height: 270px;
+        display: none;
+        img{
+            width: 100%;
+            display: inline-block;
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            max-width: 350px;
+        }
+    }
+}
+
+
+//---------------------------------------------------
+//Общий стиль для слайдеров
+//---------------------------------------------------
+.carouselMain{
+    .item{
+        h5{
+            color: $base-color;
+            margin-top: 25px;
+        }
+    }
+    .owl-dots{
+        .owl-dot > span{
+            width: 8px;
+            height: 8px;
+            background: #E0E0E0!important;
+        }
+        .active > span{
+            background: $base-color!important;
+        }
+    }
+}
+
+//---------------------------------------------------
+//Блок с предложениями
+//---------------------------------------------------
+
+//Переключение вкладок
+.navWrapper{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+
+    .nav-tabs {
+        border-bottom: none;
+        margin-left: -0.8rem;
+        margin-bottom: 35px;
+        .nav-item {
+            width: 100%;
+            text-align: center;
+            height: 40px;
+            .nav-link {
+                margin-bottom: -1px;
+                border: none;
+                color: #200142;
+                font-weight: 700;
+                padding: 0;
+                margin:  0 1rem;
+                &:hover{
+                    color: $base-color;
+                }
+            }
+            .nav-link.active{
+                color: $base-color;
+                background-color: $white-color;
+                border-bottom: 2px solid $base-color;
+                height: 2.3rem;
+            }
+        }
+    }
+//Переключение слайдов
+    .carouselMain-owl-nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .carouselMain-owl-nav span {
+        width: 48px;
+        height: 48px;
+        background: $grey-color;
+        border-radius: 6px;
+        margin: 0 4px;
+        position: relative;
+        &:hover {
+            cursor: pointer;
+        }
+        & > i{
+            position: absolute;
+            top: 0;
+            left:50%;
+            transform:translate(-50%, 50%);
+        }
+        & > i:before{
+            content: url('../img/icon/chevron.svg');
+            display: block;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        &.carouselMain-next-button >  i:before{
+            transform: rotate(180deg);
+            margin-top: -1px;
+        }
+    }
+}
+
+//---------------------------------------------------
+//Блок с формой
+//---------------------------------------------------
+#form{
+    background: center / cover no-repeat $darker-base-color url('../img/form-wall.png');
+    //текст блока
+    .content{
+        padding: 60px 10px 100px;
+        h2{
+            margin-bottom: 35px;
+        }
+        h2, p{
+            color: $white-color;
+            text-align: center;
+        }
+    }
+    //форма
+    form{
+        margin-top: 55px;
+        .btn-submit{
+            width: 100%!important;
+            display: flex;
+            width: 256px;
+            height: 61px;
+            background: $base-color;
+            color: $white-color;
+            border-radius: 6px;
+        }
+    
+        .form-control {
+            height: calc(1.5em + 0.75rem + 25px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: $white-color;
+            background-color: transparent;
+            border: 1px solid $white-color;
+            border-radius: 6px;
+        }
+        .form-control:focus {
+            color: $pink-color;
+            background-color: transparent;
+            border-color: $pink-color;
+            outline: 0;
+            box-shadow: none;
+        }
+        .form-control::placeholder {
+            color: transparent;
+          }
+        .has-float-label {
+            display: block;
+            position: relative;
+            & label, & > span {
+                position: absolute;
+                color: $white-color;
+                left: 0;
+                top: 0;
+                cursor: text;
+                font-size: 75%;
+                opacity: 1;
+                -webkit-transition: all .2s;
+                        transition: all .2s;
+                top: -.5em;
+                left: 0.85rem;
+                z-index: 3;
+                line-height: 1;
+                padding: 0 1px;
+
+                &::after{
+                    content: " ";
+                    display: block;
+                    position: absolute;
+                    background: $darker-base-color;
+                    height: 2px;
+                    top: 50%;
+                    left: -.4em;
+                    right: -.4em;
+                    z-index: -1;
+                }
+            }
+            .form-control:placeholder-shown:not(:focus) + * {
+                font-size: 100%;
+                opacity: 1;
+                top: 1.3em;
+            }
+        }
+    }
+}
+
+//---------------------------------------------------
+//Блок футер
+//---------------------------------------------------
+#footer{
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px 0;
+    .logo-f{
+        margin: 0 auto;
+        width: 150px;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+//---------------------------------------------------
+//Адаптив
+//---------------------------------------------------
+@media (min-width: 414px) { 
+    #hero{
+        .moon{
+            display: block;
+        }
+    }
+ }
+ @media (min-width: 576px) { 
+    #header{
+        .btn-ticket{
+            // font-size: 12px;
+            font-size: 0.75rem;
+        }
+    }
+    #hero{
+        height: 75vh;
+    }
+    .navWrapper{
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        .nav-tabs {
+            margin-bottom: 0;
+            .nav-item {
+                width: auto;
+                text-align: left;
+                height: auto;
+            }
+        }
+    }
+    #form{
+        .content{
+            padding: 60px 100px 100px;
+            h2{
+                margin-bottom: 35px;
+            }
+            h2, p{
+                color: $white-color;
+                text-align: center;
+            }
+        }
+    }
+  }
+ @media (min-width: 991.98px) {
+    #hero{
+        height: 60vh;
+        h1, p{
+            text-align: left;
+        }
+        .moon{
+            img{
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                margin-top: -60px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                width: 100%;
+                max-width: 520px;
+            }
+        }
+    }
+  }
